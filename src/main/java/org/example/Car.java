@@ -5,14 +5,12 @@ public class Car {
         System.out.println("Engine has started.");
     }
 
+    public void turnOffEngine() {
+        System.out.println("Engine has been turned off.");
+    }
+
     public String drive(int speed) {
         return "The car is moving at " + speed + " mph.";
     }
 
-    public static void main(String[] args) {
-        Car myCar = new Car();
-        myCar.startEngine();
-        String status = myCar.drive(60);
-        System.out.println(status);
-    }
 }
