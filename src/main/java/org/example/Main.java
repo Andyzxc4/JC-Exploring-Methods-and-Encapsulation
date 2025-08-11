@@ -1,6 +1,8 @@
 package org.example;
 
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -111,7 +113,25 @@ public class Main {
         stat.setTemperatureCelsius(25.0); // Set a valid temp
         System.out.println("Temp after valid change: " + stat.getTemperatureCelsius());
 
+        Scanner scannerObj = new Scanner(System.in);
+        User user = new User("short");
 
+        System.out.println("\nCurrent masked password: " + user.getPassword());
+
+        while (true) {
+            System.out.print("\nEnter password: ");
+            String passwordEntered = scannerObj.nextLine();
+
+            System.out.printf("\nAttempting to set password '%s'...\n", passwordEntered);
+            user.setPassword(passwordEntered);
+            System.out.println("Current masked password: " + user.getPassword());
+
+            if (passwordEntered.length() >= 8) {
+                break;
+            }
+        }
+
+        scannerObj.close();
     }
 
     //  method to change student name in part 2. Passing Parameters: Primitives vs. Objects
